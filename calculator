@@ -1,0 +1,34 @@
+import math
+
+def solve_math_problem(expression):
+    try:
+        result = eval(expression, {"__builtins__": None}, {
+            "abs": abs,
+            "round": round,
+            "pow": pow,
+            "sqrt": math.sqrt,
+            "factorial": math.factorial,
+            "gcd": math.gcd,
+            "log": math.log,
+            "sin": math.sin,
+            "cos": math.cos,
+            "tan": math.tan,
+            "pi": math.pi,
+            "e": math.e
+        })
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+
+if __name__ == "__main__":
+    print("Math Problem Solver!")
+    print("Enter a math expression (or type 'exit' to quit):")
+    
+    while True:
+        user_input = input(">>> ")
+        if user_input.lower() == "exit":
+            print("Goodbye!")
+            break
+        
+        solution = solve_math_problem(user_input)
+        print("Result:", solution)
